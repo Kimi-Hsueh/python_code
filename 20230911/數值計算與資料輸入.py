@@ -1,0 +1,1 @@
+#python運算的結果請參考ipynb檔
