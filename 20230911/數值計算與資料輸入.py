@@ -302,3 +302,143 @@ b=a
 c = 'Grey Duck!' 
 print(a, b, c) 
 print(a+b+c)
+
+# 資料輸入
+'''
+input 代表資料輸入
+輸入資料後可利用變數 .class 方式查詢變數的資料型態。
+預設輸入的資料型態為字串
+若是整數資料您必須加入 int( ) 轉換。
+如果輸入浮點數或者字串都會產生錯誤訊息。
+若是浮點數小數資料您必須加入 float( ) 轉換。
+如果輸入整數會當作浮點數處理，輸入字串會產生錯誤訊息。
+'''
+
+
+#建立1個input01.py
+#input01.py檔案內容：
+# input01.py
+a = input("輸入整數1a: ") 
+b = input("輸入整數1b: ") 
+c = int(input("int輸入c:")) 
+d = int(input("int輸入d:")) 
+f=a+b
+g=c+d 
+print(f)
+print(g)
+
+#建立1個input02.py
+#input02.py檔案內容
+# input02.py
+
+c = int(input("int輸入c:"))
+d = int(input("int輸入d:")) 
+g=c+d
+print(g) #此為整數運算
+h = float(input("float輸入h:"))
+i = float(input("float輸入i:"))
+j=h+d
+print(j) #此為浮點數運算
+
+# input02.py
+
+c = int(input("int輸入c:"))
+d = int(input("int輸入d:")) 
+g=c+d
+print(g)
+h = float(input("float輸入h:"))
+i = float(input("float輸入i:"))
+j=h+d
+print(j)
+
+#建立1個input03.py
+#input03.py檔案內容
+# input03.py
+
+a = input("輸入字串: ")
+print(a,a.__class__ ) 
+a = input("輸入整數: ") 
+print(a,a.__class__ )#出現的結果為str，因為input預設的輸入資料型態為字串
+a = float(input("float輸入浮點數: "))
+print(a,a.__class__ )
+a = int(input("int輸入整數:"))
+print(a,a.__class__ )#因為在input前面已經有了int的資料類型轉換
+a = int(input("int輸入字串:"))
+print(a,a.__class__ )#在此處如果輸入數字的文字會是int型態，但如果輸入文字，則會出現錯誤訊息
+
+#練習題
+'''
+question:以下的資料輸出哪一個是錯的?(選擇題)
+(1) "I can add integers, like " + str(5) + " to strings." ->正確，因為是str型態相加
+(2) "Isaid"+("Hey"*2)+"Hey!" ->正確，因為是str型態運算
+(3) "The correct answer to this multiple choice exercise is answer number" + 2 ->錯誤，因為是str+int，運算不可以是不同型態的 
+(4) True + False 正確，因為是布林值運算
+'''
+'''
+question:請問執行後的說明哪一個是對的?(選擇題)
+a,b,c="pcschool",2016,3.41
+print(b)
+(1) 2016 正確
+(2) 3.41
+(3) pcschool
+'''
+'''
+請問執行後的說明哪一個是對的?(選擇題)
+test=("abc"+"!")*2
+print(test)
+(1) abc!2
+(2) abc! abc! 正確
+(3) abc+!*2
+'''
+'''
+question: 請問計算後Z的內容哪一個是對的?(選擇題)
+x=5
+y=7 
+z=x+y+1
+(1) 571 
+(2) 1
+(3) 13 正確，因為變數為int型態
+'''
+'''
+#num.py
+a,b,c=4,2,5
+d,f=3.25,5.5
+print (a*b) # 8
+print (a**b) # 16
+print (a % 3) # 1 餘數除法
+print (d + f) # 8.75
+print (c//b) # 2.5 商數除法
+print (a/b) # 2 浮點數除法
+'''
+'''
+question: 請問執行後的說明哪一個是對的?(選擇題)
+g,h=9,3
+print(g/h)
+(1) 3 
+(2) 0 
+(3) 3.0 正確，因為是浮點數除法
+'''
+'''Homework(mathop.py):
+讓使用者輸入被除數(整數)及除數(整數，不可以是零)
+程式會顯示兩數相除的商及餘數。
+請輸入被除數(整數):45
+請輸入除數(整數,不可以為0):4
+商 11 餘數: 1
+'''
+x=int(input('請輸入被除數:'))
+y=int(input('被除數:'))
+print('商=',x//y)
+print('餘數=',x%y)
+
+'''
+Homework(plus_s.py):
+計算使用者輸入的2個任意數，程式會顯示2數相加的總和。
+請輸入第一個數值:45.67
+請輸入第二個數值:67.47
+兩個數的和是xxx.xx
+'''
+x=float(input('請輸入任意小數點數字'))
+y=float(input('請再次輸入任意小數點數字'))
+print(x)
+print(y)
+print('相加結果=',x+y)

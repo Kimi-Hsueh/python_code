@@ -1,0 +1,5 @@
+x=int(input('請輸入被除數:'))
+y=int(input('除數:'))
+print('商=',x//y)
+print('餘數=',x%y)
+print('整除結果=',x/y)

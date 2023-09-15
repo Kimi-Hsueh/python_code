@@ -1,0 +1,5 @@
+x=float(input('請輸入任意小數點數字:'))
+y=float(input('請再次輸入任意小數點數字:'))
+print('第一次輸入的數字',x)
+print('第一次輸入的數字',y)
+print('相加結果=',x+y)
