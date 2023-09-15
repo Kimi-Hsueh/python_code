@@ -208,3 +208,97 @@ print(type(str(True)))
 print(type(str(False)))
 # <class 'str'>
 
+#多行文字
+'''Boom!'''
+"""Eek!"""
+ #不太懂為什麼多行註解會變成剩下一個單引號
+#單行文字(這一段完全看不懂操作)    
+poem = "Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，由位於洛杉磯的開發商 Night School Studio 出品。這款遊戲是太空公路之旅的夥伴冒險，其中不同角色間展開了一些精彩的劇情。在銀河系的外圍，每個人和所有事物之間都有充分的空間，Night School 希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。"
+print(poem)
+poem2 = '''Apple Arcade 推出的最新遊戲《Next Stop Nowhere》，由位於洛杉磯的開發商 Night School Studio 出品。
+
+這款遊戲是太空公路之旅的夥伴冒險，其中不同角色間展開了一些精彩的劇情。
+
+在銀河系的外圍，每個人和所有事物之間都有充分的空間，Night School 希望這款遊戲可為近來可能感到孤立的玩家提供一些慰藉。 '''
+print(poem2)
+
+#將各個變數已逗號區隔之後，存檔後結果逗號會變成空格的方式顯現出來，但不知道什麼要這麼做
+print(99,'bottles','would be enough.') 
+
+#單/雙引號在display之後的結果都會回到一對單引號,如果是使用print指令下，就變為空字串
+''
+""
+''''''
+""""""
+#Continue Lines with \
+alphabet = ''
+alphabet += 'abcdefg'
+alphabet += 'hijklmnop'
+alphabet += 'qrstuv'
+alphabet += 'wxyz'
+print(alphabet) #結果會自己將所有已宣告的變數組合起來
+
+#連接字串
+#當宣告的變數文字內容太長時，可在每個段落後加上"+\"去連結整個變數
+black = 'abcdefg' + \
+    'hijklmnop' + \
+    'qrstuv' + \
+    '123456'
+print(black)
+
+#這一段我看不懂在寫啥……
+1+2+
+1+2+\ #這行我不懂為什麼會出現結果
+
+#字串使用加法運算
+#字串無法自動加數值
+bottles = 99
+print(bottles)
+print(type(bottles)) #出現的型態為int
+base = "" #空字串
+base = base + 'current inventory:'
+print(base)
+print(type(base))
+print(base+str(bottles))
+
+#脫溢字元(特殊字元)
+'''
+- 反斜線作為跳脫字元，可用於引用特殊字元。
+如果在字串資料中遇到單引號時，則必須以 \ 來跳脫（escape）處理，避免被誤認為字串結束。
+	- \\ 反斜線
+	- \’ 單引號
+	- \” 雙引號
+	- \n 換行
+	- \t 固定間隔(Tab分段)
+'''
+games = '遊戲：《鬼靈精大腳怪》\n說明：今天的遊戲更新為玩家開啟了一個全新的探索環境。從城鎮下方的新碼頭出發，乘渡輪前往新的小島，然後乘坐四輪驅動車四處巡遊，或者在衝浪遊戲中盡情衝浪。玩家還可以購買新船進行升級與比賽，或是出海捕捉鹹水魚。這是調皮大腳怪的暑假！\n\n遊戲：《迷你公路》\n說明：《迷你公路》推出了一項新更新，以透過 Fast Forward 模式協助加快道路網絡的建立，使玩家能選擇其遊戲速度。' 
+print(games)
+
+#\t ->Tab分段
+print('\tabc')
+print('a\tbc')
+print('ab\tc')
+print('abc\t')
+
+#\" 顯示雙引符號 ->先斜線再雙引號
+testimony = "\"I did nothing!\" he said. \"Not that either! Or the other thing.\""
+print(testimony)
+test = "I did nothing! he said.Not that either! Or the other thing."
+print(test)
+#在這邊可以比較一下輸出結果
+
+fact = "The world's largest rubber duck was 54'2\" by 65'7\" by 105'"
+print(fact)
+
+speech = 'Today we honor our friend, the backslash: \\.' 
+print(speech)
+
+# 使用"+"運算子組合文字段落
+print('Release the kraken! ' + 'At once!')
+
+#使用"+"運算子組合變數
+a = 'Duck.'
+b=a
+c = 'Grey Duck!' 
+print(a, b, c) 
+print(a+b+c)
