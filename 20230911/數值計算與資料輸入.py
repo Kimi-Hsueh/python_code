@@ -515,21 +515,47 @@ print('輸入數字的立方為',b)
 Homework(complex_s.py):
 請以(複合指定運算子)設計程式,讓用者輸入三個任意數，程式會顯示3數相加的總和(float)
 '''
+#原算式
 a=float(input('給我第一個數字'))
 b=float(input('給我第二個數字'))
 c=float(input('給我第三個數字'))
 d=a+b+c
 print('你剛剛給我三個數字的相加是',d)
-
+#複合指定運算子
+total=0
+keyin=float(input('給我第一個數字'))
+total+=keyin
+keyin=float(input('給我第二個數字'))
+total+=keyin
+keyin=float(input('給我第三個數字'))
+total+=keyin
+print(total)
 '''
 Homework(ladder.py):
 讓使用者輸入梯形的上底、下底及高，程式會計算梯形的面積(上底加下底乘以高除以2)
 '''
-top=int(input('請給我梯形的上底'))
-buttom=int(input('請給我梯形的下底'))
-heigh=int(input('請給我梯形的高'))
-print('梯形的上底',top)
-print('梯形的下底',buttom)
-print('梯形的高',heigh)
+top=float(input('請給我梯形的上底'))
+buttom=float(input('請給我梯形的下底'))
+heigh=float(input('請給我梯形的高'))
+print('梯形的上底',top,'公分')
+print('梯形的下底公分',buttom,'公分')
+print('梯形的高',heigh,'公分')
 x=(top+buttom)*heigh/2
-print('梯形的面積',x)
+print('梯形的面積',round(x,ndigits=3),'平方公分')
+#四捨五入到第幾位的函數 ->round(變數,ndigits=小數點後第幾位)\
+'''
+Homework(degree.py)
+讓使用者輸入直角三角形的對邊
+讓使用者輸入直角三角形的斜邊
+計算角度
+公式:
+sin(x) = 對邊 / 斜邊
+x是radian(弧度)
+'''
+import math #掛載python數學模組
+x=float(input('請輸入對邊'))
+y=float(input('請輸入斜邊'))
+redian=math.asin(x/y) #此部份是計算圓周的孤度
+degress=math.degrees(redian) #此部份是利用math模組內的degress功能計算出夾角
+round(degress,ndigits=3) #此部份是四捨五入至小數點後2位
+print('對邊',x,'cm','斜邊',y,'cm','角度',degress,'度')
