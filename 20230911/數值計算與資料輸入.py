@@ -437,8 +437,99 @@ Homework(plus_s.py):
 請輸入第二個數值:67.47
 兩個數的和是xxx.xx
 '''
-x=float(input('請輸入任意小數點數字'))
-y=float(input('請再次輸入任意小數點數字'))
+x=float(input('請輸入任意小數點數字:'))
+y=float(input('請再次輸入任意小數點數字:'))
 print(x)
 print(y)
-print('相加結果=',x+y)
+print('相加結果=',x+y) #我不懂為啥會出現近似值
+
+#複合指定運算子
+'''
+當「=」左右兩邊是相同資料時可以使用精簡方式:
+省略「=」右邊相同資料。
+將「=」右邊的計算符號移到「=」左邊。
+'''
+#操作範例1
+    #原始範例
+x=int(input('請輸入整數數字:'))
+x=x+2
+print(x)
+    #精簡過後
+x=int(input('請輸入整數數字:'))
+x+=2
+'''
+精簡的內容如下
+Step1 ->把x=x+2相同的x變成1個
+Step2 ->x=+2的加號移至等號的左邊
+Step3 ->結果為x+=2
+'''
+print(x)
+
+#操作範例2
+    #原始範例
+y=int(input('請轉入大於3的數字:'))
+y=y-3
+print(y)
+    #精簡過後
+y=int(input('請轉入大於3的數字:'))
+y-=3
+'''
+精簡的內容如下：
+Step1 ->把y=y-3相同的y變成1個
+Step2 ->把y=-3的減號移至等號的左邊
+Step3 ->結果為y-=3
+'''
+print(y)
+
+#操作範例3-自己出的題目
+x=int(input('請輸入任意整數數字x='))
+y=int(input('請輸入任意整數數字y='))
+#原算式 x=x*2
+x*=2
+print(x)
+#原算式 y=y+8
+y+=8
+print(y)
+
+#把最終的計算結果相加
+#原算式 x=x*2,y=y+8
+x=int(input('請輸入任意整數數字x='))
+y=int(input('請輸入任意整數數字y='))
+x*=2
+y+=8
+print('計算過後的x=',x)
+print('計算過後的y=',y)
+print(x+y)
+
+'''
+Homework(complex.py):
+請使用者輸入一個任意數，程式會顯示此數的平方值及立方值
+'''
+x=int(input('請給我一個整數'))
+a=x**2
+b=x**3
+print('輸入數字的平方為',y)
+print('輸入數字的立方為',b)
+
+'''
+Homework(complex_s.py):
+請以(複合指定運算子)設計程式,讓用者輸入三個任意數，程式會顯示3數相加的總和(float)
+'''
+a=float(input('給我第一個數字'))
+b=float(input('給我第二個數字'))
+c=float(input('給我第三個數字'))
+d=a+b+c
+print('你剛剛給我三個數字的相加是',d)
+
+'''
+Homework(ladder.py):
+讓使用者輸入梯形的上底、下底及高，程式會計算梯形的面積(上底加下底乘以高除以2)
+'''
+top=int(input('請給我梯形的上底'))
+buttom=int(input('請給我梯形的下底'))
+heigh=int(input('請給我梯形的高'))
+print('梯形的上底',top)
+print('梯形的下底',buttom)
+print('梯形的高',heigh)
+x=(top+buttom)*heigh/2
+print('梯形的面積',x)

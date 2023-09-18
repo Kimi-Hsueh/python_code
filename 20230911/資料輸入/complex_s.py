@@ -1,0 +1,9 @@
+'''
+Homework(complex_s.py):
+請以(複合指定運算子)設計程式,讓用者輸入三個任意數，程式會顯示3數相加的總和(float)
+'''
+a=float(input('給我第一個數字'))
+b=float(input('給我第二個數字'))
+c=float(input('給我第三個數字'))
+d=a+b+c
+print('你剛剛給我三個數字的相加是',d)
