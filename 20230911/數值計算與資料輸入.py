@@ -437,11 +437,12 @@ Homework(plus_s.py):
 請輸入第二個數值:67.47
 兩個數的和是xxx.xx
 '''
+import decimal
 x=float(input('請輸入任意小數點數字:'))
 y=float(input('請再次輸入任意小數點數字:'))
 print(x)
 print(y)
-print('相加結果=',x+y) #我不懂為啥會出現近似值
+print('相加結果=',x+y) 
 
 #複合指定運算子
 '''
