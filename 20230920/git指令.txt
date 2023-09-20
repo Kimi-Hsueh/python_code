@@ -1,1 +1,6 @@
 #這是git的一些操作
+git status ->查看目前git的狀態
+git add ->將檔案放入暫存區
+git commit -m "說明" 
+git commit ->跳vim輸入說明，完成後按"esc"再輸入"wq"
+git push ->將完成commit的檔案上傳到github上
