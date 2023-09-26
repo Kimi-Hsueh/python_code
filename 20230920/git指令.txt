@@ -4,3 +4,6 @@ git add ->將檔案放入暫存區
 git commit -m "說明" 
 git commit ->跳vim輸入說明，完成後按"esc"再輸入"wq"
 git push ->將完成commit的檔案上傳到github上
+git --mixed 將commit修改的東西回到暫存區
+git --soft 將commit修改的東西回到工作區
+git --hard 將commit區復原
