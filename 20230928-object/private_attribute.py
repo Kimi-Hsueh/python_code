@@ -8,7 +8,7 @@ class Person:
     def weight(self) ->int:
         return self.__weight
     @property
-    def getBMI(self) ->float:
+    def getBMI(self) ->float:  
         return self.bmi() #此行去執行method的bmi運算並回傳
     #method
     def bmi(self) ->float:
