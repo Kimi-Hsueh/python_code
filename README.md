@@ -7,4 +7,5 @@
 [20230918](https://github.com/Kimi-Hsueh/python_code/blob/main/20230918/20230918_work.ipynb)<br>
 [20230920](https://github.com/Kimi-Hsueh/python_code/blob/main/20230920/20230920_work.ipynb)<br>
 [20230922](https://github.com/Kimi-Hsueh/loop_python/blob/master/homework-20230922.ipynb)<br>
-[20230926](https://github.com/Kimi-Hsueh/python_code/blob/main/20230926/%E5%8D%81%E5%85%AB%E8%B1%86%E9%81%8A%E6%88%B2.ipynb)
+[20230926](https://github.com/Kimi-Hsueh/python_code/blob/main/20230926/%E5%8D%81%E5%85%AB%E8%B1%86%E9%81%8A%E6%88%B2.ipynb)<br>
+[20230928](https://github.com/Kimi-Hsueh/python_code/blob/main/20230928-object/fordice.py)
