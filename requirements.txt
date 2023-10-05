@@ -1,1 +1,2 @@
-PythonInputPlus>=0.2.12
+PythonInputPlus
+requests
