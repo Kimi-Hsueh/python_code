@@ -10,4 +10,5 @@
 [20230926](https://github.com/Kimi-Hsueh/python_code/blob/main/20230926/%E5%8D%81%E5%85%AB%E8%B1%86%E9%81%8A%E6%88%B2.ipynb)<br>
 [20230928](https://github.com/Kimi-Hsueh/python_code/blob/main/20230928-object/fordice.py)<br>
 [20231003動態區](https://flask-web-rasw.onrender.com/)<br>
-[20231003靜態區](https://kimi-static.onrender.com/)
+[20231003靜態區](https://kimi-static.onrender.com/)<br>
+[20231005](https://github.com/Kimi-Hsueh/python_code/blob/main/20231008-homework/homework.ipynb)
