@@ -49,3 +49,4 @@ def info(name:str) -> list[str]:
     for city in cities:
         if city[1] == name:
             return city
+    return[]
