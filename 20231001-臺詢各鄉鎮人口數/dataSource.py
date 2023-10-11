@@ -44,3 +44,8 @@ def cityNames() -> list[str]:
         names.append(cityName)
     return names
 
+def info(name:str) -> list[str]:
+    cities = city_info()
+    for city in cities:
+        if city[1] == name:
+            return city
