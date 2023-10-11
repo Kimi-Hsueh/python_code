@@ -36,11 +36,11 @@ def city_info() ->list[list]:
                     __city.append(row)
     return __city #此處不管if的條件，都會顯示結果
 
-def cityName() ->list[str]:
-    cities=city_info()
-    names= []
+def cityNames() -> list[str]:
+    cities = cities_info()
+    names = []
     for row in cities:
-        cityName=row[1]
-        names.append[cityName]
-        return names
+        cityName = row[1]
+        names.append(cityName)
+    return names
 
