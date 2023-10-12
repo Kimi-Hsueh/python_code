@@ -26,11 +26,16 @@ class Winodwset(Tk.Tk):
         Tk.Label(resultFrame,text='人口數').grid(column=0,row=2,sticky='W',pady=5)
         Tk.Label(resultFrame,text='土地面積').grid(column=0,row=3,sticky='W',pady=5)
         Tk.Label(resultFrame,text='人口密度').grid(column=0,row=4,sticky='W',pady=5)
-        Tk.Label(resultFrame,text='111').grid(column=1,row=0,sticky='E',pady=5)
-        Tk.Label(resultFrame,text='新北市中和區').grid(column=1,row=1,sticky='E',pady=5)
-        Tk.Label(resultFrame,text='32767').grid(column=1,row=2,sticky='E',pady=5)
-        Tk.Label(resultFrame,text='22').grid(column=1,row=3,sticky='E',pady=5)
-        Tk.Label(resultFrame,text='23323').grid(column=1,row=4,sticky='E',pady=5)
+        self.yearVar=Tk.StringVar()
+        Tk.Label(resultFrame,textvariable=self.yearVar).grid(column=1,row=0,sticky='E',pady=5)
+        self.cityVar=Tk.StringVar()
+        Tk.Label(resultFrame,textvariable=self.cityVar).grid(column=1,row=1,sticky='E',pady=5)
+        self.poplation=Tk.StringVar()
+        Tk.Label(resultFrame,textvariable=self.poplation).grid(column=1,row=2,sticky='E',pady=5)
+        self.areaVar=Tk.StringVar()
+        Tk.Label(resultFrame,textvariable=self.areaVar).grid(column=1,row=3,sticky='E',pady=5)
+        self.densityVar=Tk.StringVar()
+        Tk.Label(resultFrame,textvariable=self.densityVar).grid(column=1,row=4,sticky='E',pady=5)
         resultFrame.pack()
 
         self.listbox.bind('<<ListboxSelect>>',self.user_selected) #設定listbox綁定“user_selected”method
@@ -38,7 +43,14 @@ class Winodwset(Tk.Tk):
     def user_selected(self,event): #定義“user_selected”method
         selectedIndex=self.listbox.curselection()[0] 
         cityName=self.listbox.get(selectedIndex)
-        print(dataSource.info(cityName))
+        datalist=(dataSource.info(cityName))
+        self.yearVar.set(datalist[0])
+        self.cityVar.set(datalist[1])
+        self.poplation.set(datalist[2])
+        self.areaVar.set(datalist[3])
+        self.densityVar.set(datalist[4])
+        
+
 
         
 
