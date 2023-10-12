@@ -7,19 +7,39 @@ class Winodwset(Tk.Tk):
         super().__init__(**kwargs)
         self.title('111年度人口統計') #使用tk模組命名視窗名稱
         self.configure(background='red') #設定視窗內的背景色
-
+        #這邊請注意，誰先被pack，就會先被執行，在視窗的顯示下就是從上到下的排列
         topFrame=Tk.Frame(self,background='#86C166') #設定視窗上部欄位底色
         label=Tk.Label(topFrame,text="111年度人口統計",font=('Helvetica', '30')) #設定視窗內文字內容及文字格式
-        label.pack(padx=200,pady=100) #設定視窗大小，x是寬度，y是高度
+        label.pack(padx=20,pady=20) #設定文字的間隔，x是寬度，y是高度
         topFrame.pack()
 
         bottomFrame=Tk.Frame(self,background='#8B81C3') #設定視窗下部欄位
         choies = dataSource.cityNames() #去dataSource呼叫cityNames()method
         choiesvar=Tk.StringVar(value=choies) #設定選單變數“choiesvar”
-        listbox=Tk.Listbox(bottomFrame,listvariable=choiesvar,width=12) #設定下拉選單變數“listbox”在視窗的下部欄位，選單內容以“choiesvar”為內容，選單寬度為12px
-        listbox.pack()
+        self.listbox=Tk.Listbox(bottomFrame,listvariable=choiesvar,width=12) #設定下拉選單變數“listbox”在視窗的下部欄位，選單內容以“choiesvar”為內容，選單寬度為12px
+        self.listbox.pack(pady=20) #設定與視窗上、下欄位的間隔
         bottomFrame.pack(expand=True,fill='x')
         
+        resultFrame=Tk.Frame(self)
+        Tk.Label(resultFrame,text='年度').grid(column=0,row=0,sticky='W',pady=5)
+        Tk.Label(resultFrame,text='地區').grid(column=0,row=1,sticky='W',pady=5)
+        Tk.Label(resultFrame,text='人口數').grid(column=0,row=2,sticky='W',pady=5)
+        Tk.Label(resultFrame,text='土地面積').grid(column=0,row=3,sticky='W',pady=5)
+        Tk.Label(resultFrame,text='人口密度').grid(column=0,row=4,sticky='W',pady=5)
+        Tk.Label(resultFrame,text='111').grid(column=1,row=0,sticky='E',pady=5)
+        Tk.Label(resultFrame,text='新北市中和區').grid(column=1,row=1,sticky='E',pady=5)
+        Tk.Label(resultFrame,text='32767').grid(column=1,row=2,sticky='E',pady=5)
+        Tk.Label(resultFrame,text='22').grid(column=1,row=3,sticky='E',pady=5)
+        Tk.Label(resultFrame,text='23323').grid(column=1,row=4,sticky='E',pady=5)
+        resultFrame.pack()
+
+        self.listbox.bind('<<ListboxSelect>>',self.user_selected) #設定listbox綁定“user_selected”method
+    
+    def user_selected(self,event): #定義“user_selected”method
+        selectedIndex=self.listbox.curselection()[0] 
+        cityName=self.listbox.get(selectedIndex)
+        print(dataSource.info(cityName))
+
         
 
 def main():
