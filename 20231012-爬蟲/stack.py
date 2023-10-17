@@ -45,12 +45,13 @@ class Frame(ttk.Frame):
     def item_select(self,event):
         item_id = self.tree.selection()[0]
         item_dict=self.tree.item(item_id)
-        values=item_dict['values']
-        print(values)
-        dialog=Dialog(self,values)
+        price=item_dict['values']
+        print(price)
+        dialog=Dialog_box(self,price)
 
 class Dialog_box(Dialog):
-    def __init__(self, master):
+    def __init__(self, master,price):
+        self.price=price
         super().__init__(master)
         
     def body(self, master):
@@ -61,6 +62,14 @@ class Dialog_box(Dialog):
         tk.Label(master, text='收盤價:').grid(row=4, column=0, sticky='W')
         tk.Label(master, text='調整後收盤價:').grid(row=5, column=0, sticky='W')
         tk.Label(master, text='成交量:').grid(row=6, column=0, sticky='W')
+
+        tk.Label(master, text=self.price[0]).grid(row=0, column=1, sticky='E')
+        tk.Label(master, text=self.price[1]).grid(row=1, column=1, sticky='E')
+        tk.Label(master, text=self.price[2]).grid(row=2, column=1, sticky='E')
+        tk.Label(master, text=self.price[3]).grid(row=3, column=1, sticky='E')
+        tk.Label(master, text=self.price[4]).grid(row=4, column=1, sticky='E')
+        tk.Label(master, text=self.price[5]).grid(row=5, column=1, sticky='E')
+        tk.Label(master, text=self.price[6]).grid(row=6, column=1, sticky='E')
 
 def main():
     window=Window()
