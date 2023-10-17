@@ -6,7 +6,7 @@ from tkinter.simpledialog import Dialog
 class Window(tk.Tk):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
-        self.title('台積電')
+        self.title('2330-台積電')
         self.frame=Frame(self) #套用class Frame的所有實體
 
 class Frame(ttk.Frame):
@@ -33,8 +33,6 @@ class Frame(ttk.Frame):
 
         self.tree.bind('<<TreeviewSelect>>',self.item_select)
         
-        
-        
     def price_list(self):
         stacklist=list()
         with open('./台積電.csv','r',encoding='utf-8') as file:
@@ -45,10 +43,29 @@ class Frame(ttk.Frame):
         return stacklist
     
     def item_select(self,event):
-        print(self.tree.selection())
+        item_id = self.tree.selection()[0]
+        item_dict=self.tree.item(item_id)
+        values=item_dict['values']
+        print(values)
+        dialog=Dialog(self,values)
+
+class Dialog_box(Dialog):
+    def __init__(self, master):
+        super().__init__(master)
+        
+    def body(self, master):
+        tk.Label(master, text='日期:').grid(row=0, column=0, sticky='W')
+        tk.Label(master, text='開盤價:').grid(row=1, column=0, sticky='W')
+        tk.Label(master, text='盤中最高價:').grid(row=2, column=0, sticky='W')
+        tk.Label(master, text='盤中最低價:').grid(row=3, column=0, sticky='W')
+        tk.Label(master, text='收盤價:').grid(row=4, column=0, sticky='W')
+        tk.Label(master, text='調整後收盤價:').grid(row=5, column=0, sticky='W')
+        tk.Label(master, text='成交量:').grid(row=6, column=0, sticky='W')
 
 def main():
     window=Window()
+    s=ttk.Style() #套用ttk的style
+    print(s.theme_use('classic')) #設定ttk的style為“classic”
     window.mainloop()
 
 if __name__ == '__main__':
