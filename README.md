@@ -13,4 +13,5 @@
 [20231003靜態區](https://kimi-static.onrender.com/)<br>
 [20231005](https://github.com/Kimi-Hsueh/python_code/blob/main/20231008-homework/homework.ipynb)<br>
 [20231011-line-notify](https://github.com/Kimi-Hsueh/python_code/blob/main/20231011-%E5%9B%9E%E5%AE%B6%E4%BD%9C%E6%A5%AD/line_notify.ipynb)<br>
-[20231012-line-bot](https://github.com/Kimi-Hsueh/line_bot)
+[20231012-line-bot](https://github.com/Kimi-Hsueh/line_bot)<br>
+[20231016-stock](https://github.com/Kimi-Hsueh/python_code/blob/main/20231012-%E7%88%AC%E8%9F%B2/stack.py)
