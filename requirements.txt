@@ -4,3 +4,8 @@ matplotlib #製作圖表用的模組
 lineTool #透過lineTool發送訊息的模組
 pillow #輔助tkinter做影像處理的模組
 yfinance #yahoo的股票套件
+
+
+#程式類
+#sqlite DB Browser for SQLite
+#下載連結：https://sqlitebrowser.org/dl/
