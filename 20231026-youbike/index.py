@@ -8,10 +8,13 @@ class Window(tk.Tk):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
         try:
-            datasource.download_youbike_data()
-        except Exception as e:
-            messagebox.showerror('下載錯誤',f'{e}\n將關閉視窗\n請稍候再重試')
+            datasource.update_sqlite_data()
+        except Exception:
+            messagebox.showerror('下載錯誤','網路狀態不正常\n將關閉視窗\n請稍候再重試')
             self.destroy()
+
+        #for item in data:
+            #print(item)
 
 
 def main():
