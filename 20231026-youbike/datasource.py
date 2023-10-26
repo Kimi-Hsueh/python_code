@@ -1,6 +1,8 @@
 import requests
 import sqlite3
 
+__all__ = ['update_sqlite_data'] #公開給其他人看的method
+
 def __download_youbike_data() ->list[dict]:
     '''
     下載youbike資料
@@ -32,7 +34,14 @@ def __create_table(conn:sqlite3.Connection):
 )
 	conn.commit()
 
-
+def __insert_data(conn:sqlite3.Connection,values:list[any]) ->None :
+    cursor = conn.cursor()
+    sql = '''
+    INSERT INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借數量,可還車)
+        VALUES(?,?,?,?,?,?,?)
+    '''
+    cursor.execute(sql,values)
+    conn.commit()
 
 def update_sqlite_data(): #將json檔匯入到資料庫
     '''
@@ -42,5 +51,8 @@ def update_sqlite_data(): #將json檔匯入到資料庫
     conn = sqlite3.connect("youbike.db")
     print(type(conn))
     __create_table(conn)
+    for item in data:
+        __insert_data(conn,[item['sna'],item['sarea'],item['mday'],item['ar'],item['tot'],item['sbi'],item['bemp']])
+    conn.close()
 
 
