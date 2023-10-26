@@ -15,7 +15,6 @@ def __download_youbike_data() ->list[dict]:
     return response.json()
 
 def __create_table(conn:sqlite3.Connection):
-	conn=sqlite3.connect('Youbike.db') #建立一個名叫“Youbike.db”的資料庫(如果存在，則連線此資料庫)
 	cursor=conn.cursor()
 	cursor.execute(
     '''
@@ -29,6 +28,7 @@ def __create_table(conn:sqlite3.Connection):
 	    "可借數量"	INTEGER,
 	    "可還車"	INTEGER,
 	    PRIMARY KEY("id" AUTOINCREMENT)
+        UNIQUE(站點名稱,更新時間) ON CONFLICT REPLACE
     );
     '''
 )
@@ -37,7 +37,7 @@ def __create_table(conn:sqlite3.Connection):
 def __insert_data(conn:sqlite3.Connection,values:list[any]) ->None :
     cursor = conn.cursor()
     sql = '''
-    INSERT INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借數量,可還車)
+    REPLACE INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借數量,可還車)
         VALUES(?,?,?,?,?,?,?)
     '''
     cursor.execute(sql,values)
@@ -49,7 +49,6 @@ def update_sqlite_data(): #將json檔匯入到資料庫
     '''
     data= __download_youbike_data() #呼叫method
     conn = sqlite3.connect("youbike.db")
-    print(type(conn))
     __create_table(conn)
     for item in data:
         __insert_data(conn,[item['sna'],item['sarea'],item['mday'],item['ar'],item['tot'],item['sbi'],item['bemp']])
