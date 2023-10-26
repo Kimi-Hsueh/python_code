@@ -43,6 +43,8 @@ def __insert_data(conn:sqlite3.Connection,values:list[any]) ->None :
     cursor.execute(sql,values)
     conn.commit()
 
+
+
 def update_sqlite_data(): #將json檔匯入到資料庫
     '''
     下載/更新資料庫
