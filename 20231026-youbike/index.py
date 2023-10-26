@@ -1,10 +1,17 @@
 import tkinter as tk
 from tkinter import ttk
+import datasource #從datasource.py抓取資料
+from tkinter import messagebox
 
 
 class Window(tk.Tk):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
+        try:
+            datasource.download_youbike_data()
+        except Exception as e:
+            messagebox.showerror('下載錯誤',f'{e}\n將關閉視窗\n請稍候再重試')
+            self.destroy()
 
 
 def main():
