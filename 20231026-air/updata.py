@@ -42,7 +42,7 @@ def insert_data_air(conn:sqlite3.Connection,values:list[any])->None:
     cursor.execute(sql,values)
     conn.commit()
 
-def insert_data(conn:sqlite3.Connection,  values:list[any]) ->None :
+def update__insert_data(conn:sqlite3.Connection,  values:list[any]) ->None :
     data=get_air_data()
     conn=sqlite3.Connection('air.db')
     create_table_air(conn)
