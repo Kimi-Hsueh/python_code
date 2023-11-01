@@ -1,3 +1,5 @@
+#在此感謝在得同學給予搜尋method的語法參考，我父繼承了全部XD
+
 import tkinter as tk
 from tkinter import ttk
 from youbikeTreeView import YoubikeTreeView
@@ -17,15 +19,24 @@ class Window(tk.Tk):
         
 
         #---------建立介面------------------------
-        #print(datasource.lastest_datetime_data())
+        #-----表頭標題-----#
         topFrame = tk.Frame(self,relief=tk.GROOVE,borderwidth=1)
         tk.Label(topFrame,text="台北市youbike及時資料",font=("arial", 20), bg="#333333", fg='#ffffff',padx=10,pady=10).pack(padx=20,pady=20)
+        #設定變數 String 型別儲存目前內容
+        var = tk.StringVar()
         topFrame.pack(pady=30)
 
+        #-----中間搜尋entry及按鈕-----#
         middleFrame=tk.Frame(self)
         tk.Label(middleFrame,text='站點查詢',font=('arial',20),bg="#333333", fg='#ffffff').pack(padx=30,pady=30)
         middleFrame.pack(pady=30)
+        self.e=tk.StringVar()
+        tk.Entry(middleFrame,width=40,textvariable=self.e).pack(side='left')
+        actionButton=tk.Button(middleFrame,text='查詢',state='normal',command=self.site_search)
+        actionButton.pack(side='right')
+        middleFrame.pack()
 
+        #-----底層TreeView區塊-----#
         bottomFrame = tk.Frame(self)
         #---------------建立treeView---------------
         self.youbikeTreeView = YoubikeTreeView(bottomFrame,show="headings",columns=('sna','mday','sarea','ar','tot','sbi','bemp'))
@@ -35,7 +46,16 @@ class Window(tk.Tk):
         self.youbikeTreeView.configure(yscrollcommand=vsb.set)
         bottomFrame.pack(pady=30)
         #print(datasource.search_sitename('振興'))
-        
+
+    #-----設定搜尋的method-----#        
+    def site_search(self):
+        search_query=self.e.get()
+        search_result=datasource.search_sitename(search_query)
+        if search_result:
+            for item in self.youbikeTreeView.get_children():
+                self.youbikeTreeView.delete(item)
+            for result in search_result:
+                self.youbikeTreeView.insert("",'end',values=result)
 
         
 
