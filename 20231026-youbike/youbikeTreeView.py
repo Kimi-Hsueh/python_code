@@ -14,10 +14,10 @@ class YoubikeTreeView(ttk.Treeview):
 
         #-----設定欄位寬度-----#
         #語法：self.column('欄位名',width=整數數字)
-        self.column('sna',width=120)
+        self.column('sna',width=200)
         self.column('mday',width=150)
         self.column('sarea',width=50)
-        self.column('ar',width=250)
+        self.column('ar',width=300)
         self.column('tot',width=80)
         self.column('sbi',width=80)
         self.column('bemp',width=80)
@@ -26,4 +26,9 @@ class YoubikeTreeView(ttk.Treeview):
         '''
         更新站點資料狀況
         '''
-        print(site_datas)
+        #-----清除所有內容-----#
+        for item in self.get_children():
+            self.delete(item)
+
+        for site in site_datas:
+            self.insert('','end',values=site)

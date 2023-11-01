@@ -31,11 +31,9 @@ class Window(tk.Tk):
         self.youbikeTreeView=YoubikeTreeView(bottomFrame,show='headings',columns=('sna','mday','sarea','ar','tot','sbi','bemp')) #定義資料欄位
         self.youbikeTreeView.pack()
         bottomFrame.pack(pady=30)
-
-        #-----更新treeView資料-----#
-        lastest_data=datasource.lastest_datetime_data()
+        #-----更新treeview資料-----#
+        lastest_data = datasource.lastest_datetime_data()
         self.youbikeTreeView.update_content(lastest_data)
-
    
 def main():    
     def update_data(w:Window)->None:
