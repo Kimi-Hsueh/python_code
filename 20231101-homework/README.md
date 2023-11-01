@@ -1,4 +1,4 @@
-作業提示：
+# 作業提示：
 
-新增一個frame加上一個搜尋界面entey
-然後再treeview上列出搜尋的結果
+# 新增一個frame加上一個搜尋界面entey
+# 然後再treeview上列出搜尋的結果
