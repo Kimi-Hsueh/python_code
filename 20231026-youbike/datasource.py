@@ -15,33 +15,37 @@ def __download_youbike_data() ->list[dict]:
     return response.json()
 
 def __create_table(conn:sqlite3.Connection):
-	cursor=conn.cursor()
-	cursor.execute(
-    '''
-    CREATE TABLE IF NOT EXISTS 台北市youbike(
-        "id"	INTEGER,
-	    "站點名稱"	TEXT NOT NULL,
-	    "行政區"	TEXT NOT NULL,
-	    "更新時間"	TEXT NOT NULL,
-	    "地址"	TEXT,
-	    "總車輛數"	INTEGER,
-	    "可借數量"	INTEGER,
-	    "可還車"	INTEGER,
-	    PRIMARY KEY("id" AUTOINCREMENT)
-        UNIQUE(站點名稱,更新時間) ON CONFLICT REPLACE
-    );
-    '''
-)
-	conn.commit()
+    cursor = conn.cursor()
+    cursor.execute(
+        '''
+        CREATE TABLE  IF NOT EXISTS 台北市youbike(
+            "id"	INTEGER,
+            "站點名稱"	TEXT NOT NULL,
+            "行政區"	TEXT NOT NULL,
+            "更新時間"	TEXT NOT NULL,
+            "地址"	TEXT,
+            "總車輛數"	INTEGER,
+            "可借"	INTEGER,
+            "可還"	INTEGER,
+            PRIMARY KEY("id" AUTOINCREMENT),
+            UNIQUE(站點名稱,更新時間) ON CONFLICT REPLACE 
+        );
+        '''
+    )
+    conn.commit()
+    cursor.close()
+    #print("create_table成功")
+    
 
 def __insert_data(conn:sqlite3.Connection,values:list[any]) ->None :
-    with conn.cursor() as cursor:
-        sql = '''
-        REPLACE INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借數量,可還車)
-            VALUES(?,?,?,?,?,?,?)
-        '''
-        cursor.execute(sql,values)
-        conn.commit()
+    cursor=conn.cursor()
+    sql = '''
+    REPLACE INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借數量,可還車)
+        VALUES(?,?,?,?,?,?,?)
+    '''
+    cursor.execute(sql,values)
+    conn.commit()
+    cursor.close()
 
 
 
@@ -60,14 +64,20 @@ def lastest_datetime_data():
      '''
      從資料庫撈取資料
      '''
-     conn=sqlite3.connect('youbike.db') #指定資料庫
-     cursor=conn.cursor() 
-
+     conn=sqlite3.connect('youbike.db') #指定要連線的資料庫
+     cursor=conn.cursor()
      #指定選取資料的語法
      sql='''
-        select 站點名稱,MAX(更新時間) AS 更新時間,行政區,地址,總車輛數,可借數量,可還車
-        FROM 台北市youbike
-        GROUP BY 站點名稱
-        '''
+    select 站點名稱,MAX(更新時間) AS 更新時間,行政區,地址,總車輛數,可借數量,可還車
+    FROM 台北市youbike
+    GROUP BY 站點名稱
+    '''
+     cursor.execute(sql)
+     rows=cursor.fetchall()
+     cursor.close()
+     conn.close()
+
+     return rows 
+    
 
 
