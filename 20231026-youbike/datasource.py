@@ -35,13 +35,13 @@ def __create_table(conn:sqlite3.Connection):
 	conn.commit()
 
 def __insert_data(conn:sqlite3.Connection,values:list[any]) ->None :
-    cursor = conn.cursor()
-    sql = '''
-    REPLACE INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借數量,可還車)
-        VALUES(?,?,?,?,?,?,?)
-    '''
-    cursor.execute(sql,values)
-    conn.commit()
+    with conn.cursor() as cursor:
+        sql = '''
+        REPLACE INTO 台北市youbike(站點名稱,行政區,更新時間,地址,總車輛數,可借數量,可還車)
+            VALUES(?,?,?,?,?,?,?)
+        '''
+        cursor.execute(sql,values)
+        conn.commit()
 
 
 
@@ -55,5 +55,19 @@ def update_sqlite_data(): #將json檔匯入到資料庫
     for item in data:
         __insert_data(conn,[item['sna'],item['sarea'],item['mday'],item['ar'],item['tot'],item['sbi'],item['bemp']])
     conn.close()
+
+def lastest_datetime_data():
+     '''
+     從資料庫撈取資料
+     '''
+     conn=sqlite3.connect('youbike.db') #指定資料庫
+     cursor=conn.cursor() 
+
+     #指定選取資料的語法
+     sql='''
+        select 站點名稱,MAX(更新時間) AS 更新時間,行政區,地址,總車輛數,可借數量,可還車
+        FROM 台北市youbike
+        GROUP BY 站點名稱
+        '''
 
 
