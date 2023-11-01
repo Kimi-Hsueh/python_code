@@ -22,6 +22,10 @@ class Window(tk.Tk):
         tk.Label(topFrame,text="台北市youbike及時資料",font=("arial", 20), bg="#333333", fg='#ffffff',padx=10,pady=10).pack(padx=20,pady=20)
         topFrame.pack(pady=30)
 
+        middleFrame=tk.Frame(self)
+        tk.Label(middleFrame,text='站點查詢',font=('arial',20),bg="#333333", fg='#ffffff').pack(padx=30,pady=30)
+        middleFrame.pack(pady=30)
+
         bottomFrame = tk.Frame(self)
         #---------------建立treeView---------------
         self.youbikeTreeView = YoubikeTreeView(bottomFrame,show="headings",columns=('sna','mday','sarea','ar','tot','sbi','bemp'))
@@ -30,7 +34,7 @@ class Window(tk.Tk):
         vsb.pack(side='left')
         self.youbikeTreeView.configure(yscrollcommand=vsb.set)
         bottomFrame.pack(pady=30)
-        print(datasource.search_sitename('振興'))
+        #print(datasource.search_sitename('振興'))
         
 
         
