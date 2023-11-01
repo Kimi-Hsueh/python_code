@@ -77,7 +77,20 @@ def lastest_datetime_data():
      cursor.close()
      conn.close()
 
-     return rows 
+     return rows
+
+def search_sitename(word:str) ->list[tuple]:
+    conn=sqlite3.connect('youbike.db')
+    cursor=conn.cursor()
+    sql='''
+    SELECT 站點名稱,max(更新時間) AS 更新時間,行政區,地址,總車輛數,可借,可還
+    FROM 台北市youbike
+    GROUP BY 站點名稱
+    HAVING 站點名稱 like ?
+'''
+    cursor.execute(sql,f'%{word}%')
+    rows=cursor.fetchall()
+    cursor.close()
     
 
 
