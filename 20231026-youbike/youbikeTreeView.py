@@ -49,6 +49,6 @@ class YoubikeTreeView(ttk.Treeview):
 class ShowDetail(Dialog):
     def __init__(self,parent,data,**kwargs):
         super().__init__(parent,**kwargs) #呼叫父類別“Dialog”
-        print(data)
+        self.data=data
 
         
