@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from youbikeTreeView import YoubikeTreeView
-from youbikeTreeView import Show_window
+from youbikeTreeView import ShowDetail
 from tkinter import messagebox
 from threading import Timer
 import datasource

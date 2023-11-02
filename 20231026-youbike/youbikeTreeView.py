@@ -40,11 +40,15 @@ class YoubikeTreeView(ttk.Treeview):
 
     def selectedItem(self,event):
         selectedItem = self.focus()
+        data_dict=self.item(selectedItem)
         print(selectedItem)
-        print(self.item(selectedItem))
-        get_password=Show_window(self.parent)
+        data_list=data_dict['values']
+        site_title=data_list[0]
+        detail=ShowDetail(self.parent,data=data_list,title=site_title)
 
-class Show_window(Dialog):
-    pass
+class ShowDetail(Dialog):
+    def __init__(self,parent,data,**kwargs):
+        super().__init__(parent,**kwargs) #呼叫父類別“Dialog”
+        print(data)
 
         
