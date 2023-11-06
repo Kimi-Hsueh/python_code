@@ -44,12 +44,12 @@ class Window(tk.Tk):
         service_Dongshan=map_widget.set_marker(23.286768450223214, 120.39850203754699,text='國道3號-東山服務區',command=self.click1)
         service_Dongshan.data={1:'休息區',2:'東山有個張鍚銘'}
 
-        #在標示上顯示圖片
+        #在標示上顯示圖片-這部份還沒讓我試出來
         service_Guanmiao=map_widget.set_marker(22.92935429985622, 120.35258712141908,text='國道3號-關廟服務區',marker_color_circle='green')
         
 
         
-
+    #套用點選地圖吐出數值的方法
     def click1(self,marker):
         print("click1")
         print(marker.__class__)
