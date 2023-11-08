@@ -5,6 +5,8 @@ lineTool #透過lineTool發送訊息的模組
 pillow #輔助tkinter做影像處理的模組
 yfinance #yahoo的股票套件
 tkintermapview #tkinker的地圖模組
+psycopg2-binary #連接postgre資料庫套件
+
 
 #程式類
 #sqlite DB Browser for SQLite
