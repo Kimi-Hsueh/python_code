@@ -11,3 +11,5 @@ psycopg2-binary #連接postgre資料庫套件
 #程式類
 #sqlite DB Browser for SQLite
 #下載連結：https://sqlitebrowser.org/dl/
+#pgadmin for postgre SQL
+#下載連結：https://www.postgresql.org/ftp/pgadmin/pgadmin4/v7.8/windows/
