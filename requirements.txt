@@ -6,7 +6,7 @@ pillow #輔助tkinter做影像處理的模組
 yfinance #yahoo的股票套件
 tkintermapview #tkinker的地圖模組
 psycopg2-binary #連接postgre資料庫套件
-
+pyinstaller #打包py檔為執行檔案的工具
 
 
 #程式類
