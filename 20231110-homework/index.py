@@ -1,7 +1,8 @@
 import password as pw
 import psycopg2 #匯入portgre sql模組
-import requests
-import time
+import requests #匯入request模組
+import time #匯入time計時模組
+from datetime import datetime #匯入報時模組
 
     
 
@@ -62,8 +63,19 @@ def update_render_data()->None:
     conn.close()
     print('資料已完成匯入動作')
 
+#-----設定報時-----#
+def now(): 
+    '''
+    設定報時
+    '''
+    now = datetime.now() #呼叫“報時”method
+    now = now.strftime("%H:%M:%S") #定義時間格式
+    print(now) #傳出時間
+
+
 n=1
 while n>0:
     print('下載資料中')
     update_render_data()
+    now()
     time.sleep(3600)
