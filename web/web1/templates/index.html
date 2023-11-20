@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的首頁</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+<body>
+    <h1>Hello! Flask</h1>
+    <h2>老師姓名:{{name}}</h2> <!--使用兩個大括號將程式內的數值傳送到網頁-->
+    {{dataFrame.to_html() | safe}}
+</body>
+</html>
