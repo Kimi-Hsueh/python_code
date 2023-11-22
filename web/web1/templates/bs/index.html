@@ -1,43 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BS_Template</title>
-    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
-    <style>
-       body{
-        background-color: aliceblue;
-       } 
-       @media (min-width: 576px) {
-        body{
-            background-color: aqua;
-        }
-       }
-       @media (min-width: 768px){
-        body{
-            background-color: antiquewhite;
-        }
-       }
-       @media (min-width: 992px){
-        body{
-            background-color: cadetblue;
-        }
-       }
-       @media (min-width: 1200px){
-        body{
-            background-color: blueviolet;
-        }
-       }
-       @media (min-width: 1400px){
-        body{
-            background-color: chocolate;
-        }
-       }
-    </style>
-</head>
-<body>
-    <h1>這是bs的首頁</h1>
-    <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
-</body>
-</html>
+{%extends "bs/base.html"%}
+{%block title%}bootstrap{%endblock%}
+{%block csslink%}
+<link rel="stylesheet" href="{{url_for('static',filename='css/bs/index.css')}}">{%endblock%}
+
+{%block head%}
+{{super()}} <!--這一行的繼承base.html的設定-->
+<style>
+    body {
+        background-color: black;
+    }
+
+    .one {
+        background-color: beige;
+    }
+
+    .two {
+        background-color: cadetblue;
+    }
+
+    .three {
+        background-color: chartreuse;
+    }
+</style>
+{%endblock%}
+
+<!--使用bootstrap的十二欄位分法做三欄式的網頁版型-->
+{%block main%}
+<div class="container">
+    <div class="row">
+        <div class="col-6 one">
+            <h1>欄位一</h1>
+            <p>我是欄位一的內容</p>
+        </div>
+        <div class="col two">
+            <h1>欄位二</h1>
+            <p>我是欄位二的內容</p>
+        </div>
+        <div class="col three">
+            <h1>欄位三</h1>
+            <p>我是欄位三的內容</p>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
