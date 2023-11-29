@@ -1,4 +1,7 @@
 from flask import Blueprint,render_template
+from bs import datasource
+import pandas as pd
+
 bp = Blueprint('bs', __name__, url_prefix='/bs')
 
 @bp.route("/")
@@ -7,6 +10,9 @@ def index():
 
 @bp.route("/test1")
 def test1():
+    data:list[tuple]=datasource.lastest_datetime_data()
+    dataframe=pd.DataFrame(data)
+    print(dataframe)
     return render_template("bs/test1.html")
 
 @bp.route("/product")
