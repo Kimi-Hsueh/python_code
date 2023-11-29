@@ -1,0 +1,158 @@
+{% extends "bs/base.html" %}
+
+{% block title %}bootstrap test1{% endblock %}
+
+{% block csslink %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/bs/index.css')}}">
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+    .banner {
+        background-color: beige;
+    }
+
+    .banner .left {
+        background-color: rgb(168, 168, 135);
+    }
+
+    .banner .right {
+        background-color: rgb(245, 245, 158);
+    }
+
+    .four {
+        background-color: rgb(151, 82, 82);
+    }
+
+    .five {
+        background-color: rgb(99, 53, 53);
+    }
+
+    .six {
+        background-color: rgb(199, 108, 108);
+    }
+    
+    @media (min-width: 576px) { 
+        /*手機橫的*/
+     }
+
+    
+    @media (min-width: 768px) { 
+        /*平板*/
+     }
+
+    
+    @media (min-width: 992px) { 
+        /*一般*/
+        .banner {
+        background-color: beige;
+        }
+
+        .banner .left {
+            background-color: rgb(40, 146, 127);
+        }
+
+        .banner .right {
+            background-color: rgb(43, 175, 96);
+        }
+     }
+
+
+    @media (min-width: 1200px) { 
+        /*大*/
+    }
+
+
+    @media (min-width: 1400px) { 
+        /*電競*/
+     }
+</style>
+{% endblock %}
+
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col banner">
+         <div class="container">
+            <div class="row justify-content-evenly">
+                <div class="col-md-6 left">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="..." class="d-block w-100" alt="...">
+                            <img src="https://image1.thenewslens.com/2018/5/ctc5gjjmn6vnmesafsq3vh765ptddc.JPG?auto=compress&q=80&w=1080" class="d-block w-100" alt="buliding">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://image1.thenewslens.com/2018/5/nzzbwjwr6q1u4x6ycq73mrtd11bvof.jpg?auto=compress&q=80&w=1080" class="d-block w-100" alt="buliding">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://image1.thenewslens.com/2018/5/p3twk3ycwk6n9j1gny7b6vcnsw26p8.jpg?auto=compress&q=80&w=1080" class="d-block w-100" alt="buliding">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://image1.thenewslens.com/2018/5/nzzbwjwr6q1u4x6ycq73mrtd11bvof.jpg?auto=compress&q=80&w=1080" class="d-block w-100" alt="buliding">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+                <div class="col-md-3 right">
+                    <div class="card">
+                        <img src="https://flashgo.gov.taipei/FileImage/Product/Image/20220411152926148.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="https://flashgo.gov.taipei/FileImage/Product/Image/20220411152926148.jpg" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+         </div>   
+        </div>
+        
+        
+    </div>
+    <div class="row">
+        <div class="col four">
+            Laborum magna non sunt consequat. Ex fugiat laborum deserunt exercitation do ullamco tempor aliqua.
+            Incididunt quis excepteur Lorem et duis elit aute.
+
+            Sunt do aute voluptate sit esse tempor nisi. Cupidatat irure tempor nostrud qui reprehenderit amet
+            incididunt ex occaecat esse laboris. In dolore veniam non tempor nisi in. Elit exercitation eu aute ex sunt
+            occaecat in cupidatat anim. Mollit commodo do elit occaecat.
+        </div>
+        <div class="col-5 five">
+            Veniam exercitation elit sunt irure nulla ad dolor tempor nisi ut in magna aute. In qui proident ex duis
+            ullamco aliqua minim ut qui culpa consequat ullamco. Fugiat sint esse deserunt aliquip cillum ad veniam
+            eiusmod commodo minim. Aute fugiat velit id adipisicing dolor duis quis qui dolor proident ex enim excepteur
+            eu.
+
+            Nisi culpa quis consectetur nostrud ipsum commodo veniam anim. Eiusmod elit commodo aliquip excepteur sunt
+            velit exercitation est ad. Non nulla et Lorem sint magna. Qui amet fugiat cupidatat ad. Ea nostrud sunt qui
+            officia nisi laboris nulla fugiat fugiat. Labore eu mollit eiusmod cillum voluptate. Tempor ut tempor veniam
+            labore et.
+        </div>
+        <div class="col six">
+            Ea do nostrud ut duis amet mollit est eu ad occaecat occaecat ea consequat magna. Veniam irure sunt do
+            veniam duis consequat nostrud. Id ex fugiat ex duis commodo aute esse cupidatat minim ipsum ea commodo
+            veniam. Irure ex occaecat consectetur laborum nisi est voluptate eu proident ipsum dolor pariatur ullamco
+            exercitation.
+
+            Sit sunt aliquip adipisicing deserunt ea qui est mollit proident adipisicing. Sint nulla do in laboris id
+            voluptate nisi reprehenderit est. Tempor quis Lorem ullamco consequat reprehenderit. Anim voluptate ex sunt
+            aliquip esse.
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+%}
