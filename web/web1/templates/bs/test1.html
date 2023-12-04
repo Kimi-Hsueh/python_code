@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "bs/base.html" %}
 
 {% block title %}bootstrap test1{% endblock %}
@@ -157,3 +158,165 @@
 </div>
 
 {% endblock %}
+=======
+{% extends "bs/base.html" %}
+
+{% block title %}bootstrap test1{% endblock %}
+
+{% block csslink %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/bs/index.css')}}">
+{% endblock %}
+
+{% block head %}
+{{ super() }}
+<style>
+    .banner {
+        background-color: beige;
+    }
+
+    .banner .left {
+        background-color: rgb(168, 168, 135);
+    }
+
+    .banner .right {
+        background-color: rgb(245, 245, 158);
+    }
+
+    .four {
+        background-color: rgb(151, 82, 82);
+    }
+
+    .five {
+        background-color: rgb(99, 53, 53);
+    }
+
+    .six {
+        background-color: rgb(199, 108, 108);
+    }
+    
+    @media (min-width: 576px) { 
+        /*手機橫的*/
+     }
+
+    
+    @media (min-width: 768px) { 
+        /*平板*/
+     }
+
+    
+    @media (min-width: 992px) { 
+        /*一般*/
+        .banner {
+        background-color: beige;
+        }
+
+        .banner .left {
+            background-color: rgb(40, 146, 127);
+        }
+
+        .banner .right {
+            background-color: rgb(43, 175, 96);
+        }
+     }
+
+
+    @media (min-width: 1200px) { 
+        /*大*/
+    }
+
+
+    @media (min-width: 1400px) { 
+        /*電競*/
+     }
+</style>
+{% endblock %}
+
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col banner">
+         <div class="container">
+            <div class="row justify-content-evenly">
+                <div class="col-md-6 left">
+                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img src="..." class="d-block w-100" alt="...">
+                            <img src="https://image1.thenewslens.com/2018/5/ctc5gjjmn6vnmesafsq3vh765ptddc.JPG?auto=compress&q=80&w=1080" class="d-block w-100" alt="buliding">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://image1.thenewslens.com/2018/5/nzzbwjwr6q1u4x6ycq73mrtd11bvof.jpg?auto=compress&q=80&w=1080" class="d-block w-100" alt="buliding">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://image1.thenewslens.com/2018/5/p3twk3ycwk6n9j1gny7b6vcnsw26p8.jpg?auto=compress&q=80&w=1080" class="d-block w-100" alt="buliding">
+                          </div>
+                          <div class="carousel-item">
+                            <img src="https://image1.thenewslens.com/2018/5/nzzbwjwr6q1u4x6ycq73mrtd11bvof.jpg?auto=compress&q=80&w=1080" class="d-block w-100" alt="buliding">
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+                <div class="col-md-3 right">
+                    <div class="card">
+                        <img src="https://flashgo.gov.taipei/FileImage/Product/Image/20220411152926148.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="https://flashgo.gov.taipei/FileImage/Product/Image/20220411152926148.jpg" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+         </div>   
+        </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        
+    </div>
+    
+
+</div>
+
+{% endblock %}
+
+%}
+>>>>>>> 1f97109faefd784e19b77469af4c741e16ad767f
