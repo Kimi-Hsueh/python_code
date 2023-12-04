@@ -1,29 +1,32 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Flask_Dash_index
+Flask_Dash_index
 {% endblock %}
 
 {% block head %}
-    {{ super() }}
-    <style>
-        
-        @media (min-width: 576px) { }
-    
-        @media (min-width: 768px) {}
+{{ super() }}
+<style>
+    @media (min-width: 576px) {}
 
-        @media (min-width: 992px) {}
+    @media (min-width: 768px) {}
 
-        @media (min-width: 1200px) {}
+    @media (min-width: 992px) {}
 
-        @media (min-width: 1400px) {}
-    </style>
+    @media (min-width: 1200px) {}
+
+    @media (min-width: 1400px) {}
+</style>
 {% endblock %}
 
 <!--網頁內容-->
 {% block content %}
+    <div class="container-lg">
+        <h1>flask_dashboard</h1>
+        {{super()}}
+    </div>
 {% endblock %}
 <!--網頁底部-->
 {% block footer %}
-        &copy; Copyright 2023 by <a href="https://flask-dash-web-uym5.onrender.com">KIMI</a>.
+&copy; Copyright 2023 by <a href="https://flask-dash-web-uym5.onrender.com">KIMI</a>.
 {% endblock %}
