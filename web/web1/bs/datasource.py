@@ -1,8 +1,9 @@
 import requests
 import psycopg2
 from . import password as pw
+#import password as pw
 
-threadRun = True #次執行緒是否執行
+
 
 def __download_youbike_data()->list[dict]:
     '''
@@ -77,11 +78,11 @@ def lastest_datetime_data()->list[tuple]:
     sql = '''
     SELECT 站點名稱,更新時間,行政區,地址,總車輛數,可借,可還
     FROM 台北市youbike
-    WHERE 更新時間 IN (
-	    SELECT MAX(更新時間)
-	    FROM 台北市youbike
-	    GROUP BY 站點名稱
-    );
+    WHERE (更新時間,站點名稱) IN (
+	        SELECT MAX(更新時間),站點名稱
+	        FROM 台北市youbike
+	        GROUP BY 站點名稱
+            );
     '''
     cursor.execute(sql)
     rows = cursor.fetchall()
