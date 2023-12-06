@@ -2,25 +2,22 @@ from dash import Dash, html,dash_table
 import plotly.express as px
 import pandas as pd
 import dash_bootstrap_components as dbc
-from collections import OrderedDict
+from .assets import datasource
+import pandas as pd
+
 
 #-----指定網頁路徑的名稱及套用dash_bootstrap_components設定-----#
 dash2 = Dash(requests_pathname_prefix="/dash/app2/",external_stylesheets=[dbc.themes.BOOTSTRAP])
 
-#-----頁籤的命名-----#
+#-----頁籤的命名-----#   
 dash2.title='DASH的示範網頁'
-data = OrderedDict(
-    [
-        ("Date", ["2015-01-01", "2015-10-24", "2016-05-10", "2017-01-10", "2018-05-10", "2018-08-15"]),
-        ("Region", ["Montreal", "Toronto", "New York City", "Miami", "San Francisco", "London"]),
-        ("Temperature", [1, -20, 3.512, 4, 10423, -441.2]),
-        ("Humidity", [10, 20, 30, 40, 50, 60]),
-        ("Pressure", [2, 10924, 3912, -10, 3591.2, 15]),
-    ])
 
-df = pd.DataFrame(
-    OrderedDict([(name, col_data * 10) for (name, col_data) in data.items()])
-)
+#-----導入資料來源-----#
+lastest_data = datasource.lastest_datetime_data()
+lastest_df = pd.DataFrame(lastest_data,columns=['站點名稱','更新時間','行政區','地址','總數','可借','可還'])
+lastest_df1 = lastest_df.reset_index()
+lastest_df1['站點名稱'] = lastest_df1['站點名稱'].map(lambda name:name[11:])
+
 
 dash2.layout = html.Div(
     [
@@ -35,9 +32,11 @@ dash2.layout = html.Div(
             html.Div([
                 html.Div([
                     dash_table.DataTable(
-                        data=df.to_dict('records'),
-                        columns=[{'id':column,'name':column} for column in df.columns],
-                        page_size=20
+                        data=lastest_df1.to_dict('records'),
+                        columns=[{'id':column,'name':column} for column in lastest_df.columns],
+                        page_size=20,
+                        style_table={'height': '300px', 'overflowY': 'auto'},
+                        fixed_rows={'headers': True}
                     ),
                 ],className="col text-center")
             ],

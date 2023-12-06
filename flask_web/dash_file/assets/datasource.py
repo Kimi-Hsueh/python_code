@@ -1,7 +1,6 @@
 import requests
 import psycopg2
-import password as pw
-#import password as pw
+from . import password as pw
 
 def lastest_datetime_data()->list[tuple]:
     conn = psycopg2.connect(database=pw.DATABASE,
