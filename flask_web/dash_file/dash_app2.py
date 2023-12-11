@@ -1,5 +1,4 @@
-from dash import Dash, html,dash_table,Input,Output,callback
-import plotly.express as px
+from dash import Dash, html,dash_table,Input,Output,callback,dcc
 import pandas as pd
 import dash_bootstrap_components as dbc
 from .assets import datasource
@@ -22,6 +21,7 @@ lastest_df1['站點名稱'] = lastest_df1['站點名稱'].map(lambda name:name[1
 dash2.layout = html.Div(
     [
         dbc.Container([
+            #第一欄位：表頭名稱
             html.Div([
                 html.Div([
                     html.H1("台北市youbike及時資料")
@@ -29,6 +29,28 @@ dash2.layout = html.Div(
             ],
             className="row",
             style={"paddingTop":'2rem'}),
+            #第二欄位：搜尋框及確認按鈕
+            html.Div([
+                html.Div([
+                    #第二欄位：搜尋框
+                    html.Div([
+                                dbc.Label("站點名稱"),
+                                dbc.Input(id='input_value',
+                                          placeholder="請輸入站點名稱", type="text"),                                
+                    ])
+                ],className="col"),
+                    #第二欄位：確認按鈕
+                    html.Div([
+                        html.Button('確定', id='submit-val',className="btn btn-primary")
+                    ],className="col"),
+                    #第二欄位：輸出搜尋框的值到cli上
+                    html.Div(children="輸入內容",
+                            id="output-content",
+                            className="col"),
+            ],
+            className="row row-cols-auto align-items-end",
+            style={"paddingTop":'2rem'}),
+            #第三欄位：treeview表格顯示
             html.Div([
                 html.Div([
                     dash_table.DataTable(
@@ -51,15 +73,16 @@ dash2.layout = html.Div(
                                 {   'if': {'column_id': '可還'},
                                  'width': '5%'},
                         ],
-                        row_selectable="single", #在表單內增加單選按鈕
-                        selected_rows=[] #預設單選按鈕為“不選擇”
+                        row_selectable="single",
+                        selected_rows=[]
                     ),
                 ],className="col text-center")
             ],
             className="row",
-            style={"paddingTop":'2rem'}),
+            style={"paddingTop":'0.5rem'}),
+            #第四欄位：treeview表格單欄顯示
             html.Div([
-                html.H5("這是第3列",className="col",id='showMessage') #在網頁上新增第三個顯示區塊
+                html.Div(children="",className="col",id='showMessage')
             ],
             className="row",
             style={"paddingTop":'2rem'})
@@ -69,12 +92,28 @@ dash2.layout = html.Div(
     className="container-lg"
     )
 
+# 註冊輸入列動作
+@callback(
+        Output('output-content','children'),
+        Input('submit-val','n_clicks'),
+        Input('input_value','value')
+)
+def clickBtn(n_clicks:None | int,inputValue:str):
+    if n_clicks is not None:
+        #一定先檢查有沒有按button
+        print(inputValue)
+
 
 # 註冊單選按鈕動作
 @callback(
       Output('showMessage','children'),
       Input('main_table','selected_rows')  
 )
-def selectedRow(selected_rows):
-    print(selected_rows)
+def selectedRow(selected_rows:list[int]):
+    #取得一個站點的series
+    if len(selected_rows) !=0:
+        oneSite:pd.Series= lastest_df1.iloc[selected_rows]
+        oneTable=dash_table.DataTable(oneSite.to_dict('records'),[{"name": i, "id": i} for i in oneSite.columns])
+        return [oneTable]
+    
     return str(selected_rows)
